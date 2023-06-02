@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer>
       <div className="ly--lg-container">
-        <div className="flex justify-content--space-between align-items--center">
+        <div className="footer-wrapper flex justify-content--space-between align-items--center">
           <Link to={'/'} className='footer-logo'>
             <img 
               src={logoWhite} 

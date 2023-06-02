@@ -32,6 +32,17 @@ header.navbar-wrapper {
 }
 
 @media(max-width: 576px) {
+  
+  .navbar {
+		flex-direction: column;
+		row-gap: 32px;
+	}
+
+	.navbar-links {
+		flex-direction: column;
+		row-gap: 32px;
+	}
+
   .navbar-links li {
     text-align: center;
   }

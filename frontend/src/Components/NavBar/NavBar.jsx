@@ -6,23 +6,28 @@ import logo from '../../assets/img/logo.webp'
 export default function NavBar() {
   return (
     <>
-    <header className='ly--lg-container'>
-      <nav>
-        <Link to={'/'}>
-          <img 
-            src={logo} 
-            alt="Logo Hrnet" />
-        </Link>
-        <ul>
-          <li>
-            <Link to={'/create-employee'}></Link>
-            Create Employee
-          </li>
-          <li>
-            Current Employees
-          </li>
-        </ul>
-      </nav>
+    <header className='navbar-wrapper mb--xxl'>
+      <div className='ly--lg-container'>  
+        <nav className='navbar flex justify-content--space-between align-items--center'>
+          <Link to={'/'} className='navbar-logo'>
+            <img 
+              src={logo} 
+              alt="Logo Hrnet" />
+          </Link>
+          <ul className='navbar-links flex'>
+            <li>
+              <Link to={'/'}>
+                Current Employees
+              </Link>
+            </li>
+            <li>
+              <Link to={'/create-employee'}>
+                Create Employee
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
     </>
   )

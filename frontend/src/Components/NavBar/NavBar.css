@@ -1,0 +1,38 @@
+
+header {
+  box-shadow: 1px 10px 13px -1px rgba(0,0,0,0.08);
+  -webkit-box-shadow: 1px 10px 13px -1px rgba(0,0,0,0.08);
+  -moz-box-shadow: 1px 10px 13px -1px rgba(0,0,0,0.08);
+}
+
+header.navbar-wrapper {
+  border-bottom: 1px solid #9bb500;
+}
+
+.navbar {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar-logo img {
+  width: 80px;
+}
+
+.navbar-links {
+  column-gap: 32px;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: #000;
+}
+
+.navbar-links li a:hover {
+  color: #789100;
+}
+
+@media(max-width: 576px) {
+  .navbar-links li {
+    text-align: center;
+  }
+}

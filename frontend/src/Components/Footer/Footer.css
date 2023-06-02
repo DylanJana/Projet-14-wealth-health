@@ -1,0 +1,22 @@
+footer {
+  background-color: #000;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.footer-logo img {
+  width: 80px;
+}
+
+.footer-links {
+  column-gap: 32px;
+}
+
+.footer-links li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.footer-links li a:hover {
+  color: #789100;
+}

@@ -1,5 +1,4 @@
 import React from 'react'
-import './InputNumber.css'
 
 export default function InputNumber({
   name,

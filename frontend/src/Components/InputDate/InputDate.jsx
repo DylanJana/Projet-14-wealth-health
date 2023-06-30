@@ -1,5 +1,4 @@
 import React from 'react'
-import './InputDate.css'
 
 export default function InputDate({
   name,

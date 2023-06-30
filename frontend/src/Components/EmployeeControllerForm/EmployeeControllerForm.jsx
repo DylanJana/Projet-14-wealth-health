@@ -11,6 +11,9 @@ import { useDispatch } from 'react-redux'
 import { addEmployee } from "../../redux/employeeReducer/employeReducer"
 import { verifyFormFields } from "../../formVerify/formVerify"
 
+/*** Modal Plugin */
+// import Modal from "Modal-wealth-health/dist/Modal";
+
 export default function EmployeeControllerForm() {
   const [newEmployee, setNewEmployee] = useState({
     firstName: "",
@@ -28,7 +31,7 @@ export default function EmployeeControllerForm() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const navigatoToEmployeesTable = () => {
+  const navigateToEmployeesTable = () => {
     navigate('/')
   }
   
@@ -124,7 +127,7 @@ export default function EmployeeControllerForm() {
                 id="street"
                 name="street"
                 label="Street"
-                placeholder="37 rue Benoît"
+                placeholder="37 street Benoît"
                 required={true}
                 pattern="^[#.0-9a-zA-Z\s,-]+$"
                 onChange={saveValues}
@@ -176,8 +179,9 @@ export default function EmployeeControllerForm() {
         <button 
         type="submit"
         className="btn--plain btn--green"
-        onClick={verifyFormFields}>Enregistrer l'employé</button>
+        onClick={verifyFormFields}>Register employee</button>
       </form>
+      {/* <Modal /> */}
     </section>
   );
 }

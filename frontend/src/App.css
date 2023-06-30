@@ -70,6 +70,14 @@ ul {
 	margin-right: auto;
 }
 
+/*** Title ***/
+.title--xl {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #789100;
+}
+
 /*** Flex ***/
 .flex {
 	display: flex;
@@ -94,6 +102,14 @@ ul {
 /*** Margins ***/
 .mb--sm {
   margin-bottom: 16px;
+}
+
+.mb--md {
+  margin-bottom: 32px;
+}
+
+.mb--lg {
+  margin-bottom: 48px;
 }
 
 .mb--xxl {
@@ -155,6 +171,11 @@ ul {
   color: #000;
 }
 
+.form-wrapper input:focus-visible {
+  border: 2px solid #000;
+  outline: 0;
+}
+
 .form-row {
   margin-right: -15px;
   margin-left: -15px;
@@ -166,8 +187,22 @@ ul {
   width: 50%;
 }
 
+.error-message {
+  color: red;
+}
+
+/*** Alignment ***/
+.text--center {
+  text-align: center;
+}
+
 @media(max-width: 576px){
 	.ly--lg-container {
+		padding-right: 20px;
+		padding-left: 20px;
+	}
+
+  .ly--xs-container {
 		padding-right: 20px;
 		padding-left: 20px;
 	}
@@ -181,7 +216,16 @@ ul {
     width: 100%;
   }
 
-  button[type="submit"] {
+  .btn--plain {
     width: 100%;
+  }
+
+  a.btn--plain {
+    display: block;
+    text-align: center;
+  }
+
+  .title--xl {
+    font-size: 1.25rem;
   }
 }

@@ -1,5 +1,4 @@
 import React from 'react'
-import './InputSelect.css'
 
 export default function InputSelect({
   name,
@@ -21,6 +20,7 @@ export default function InputSelect({
         name={name}
         required={required}
         onChange={onChange}>
+          <option value=''>Sélectionner</option>
         {options.map((option) => (
           <option value={option.value} key={option.value}>
             {option.label}

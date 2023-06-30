@@ -1,18 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { employees } from "../../datas/employees.jsx"
 
-const initialState= [
-  ...employees
-]
+const initialState = [...employees]
 
 export const employeeSlice = createSlice({
   name: "employee",
   initialState,
   reducers: {
     addEmployee: (state, newEmployee) => {
-      return(
-        state = [...state, newEmployee.payload]
-      )
+      console.log("NEWEMPLOYEE ", newEmployee)
+      state = state.push({ ...newEmployee.payload});
     }
   }
 })

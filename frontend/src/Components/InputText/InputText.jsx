@@ -1,5 +1,4 @@
 import React from 'react'
-import './InputText.css'
 
 export default function InputText({
   name,

@@ -1,120 +1,183 @@
-import React from 'react'
-import { useState} from 'react'
+import React from "react"
+import { useState } from "react"
+import { States } from "../../datas/states"
+import { Departments } from "../../datas/departments"
+import InputText from "../InputText/InputText.jsx"
+import InputDate from "../InputDate/InputDate.jsx"
+import InputSelect from "../InputSelect/InputSelect"
+import InputNumber from "../InputNumber/InputNumber"
+import { useNavigate } from "react-router-dom"
+import { useDispatch } from 'react-redux'
+import { addEmployee } from "../../redux/employeeReducer/employeReducer"
+import { verifyFormFields } from "../../formVerify/formVerify"
 
 export default function EmployeeControllerForm() {
-  const [formData, setFormData] = useState({
-    name: '',
-    surname: '',
-    birthdate: "2023-06-06",
-    startdate: "2023-06-06",
-    streetaddress: '',
-    cityaddress: '',
-    stateaddress: '',
-    zipcode: '',
-    department: ''
+  const [newEmployee, setNewEmployee] = useState({
+    firstName: "",
+    lastName: "",
+    dateBirth: "",
+    startDate: "",
+    street: "",
+    city: "",
+    state: undefined,
+    zipCode: 0,
+    department: ""
   })
 
-  const handleChange = (e) => {
-    const {name, value} = e.target
-    setFormData((prevFormData) => ({...prevFormData, [name]: value}))
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false)
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const navigatoToEmployeesTable = () => {
+    navigate('/')
+  }
+  
+  const resetForm = () => {
+    setNewEmployee({
+      firstName: "",
+      lastName: "",
+      dateBirth: "",
+      startDate: "",
+      street: "",
+      city: "",
+      state: undefined,
+      zipCode: 0,
+      department: ""
+    })
+    setIsSuccessModalOpen(false)
   }
 
-  const handleSubmit = (e) => {
+  const formIsSuccess = (e) => {
     e.preventDefault()
-    alert(`
-    Name: ${formData.name}, 
-    Surname: ${formData.surname}, 
-    Birthdate: ${formData.birthdate}, 
-    Startdate: ${formData.startdate},
-    StreetAddress: ${formData.streetaddress},
-    CityAddress: ${formData.cityaddress},
-    StateAddress: ${formData.stateaddress},
-    Zip Code: ${formData.zipcode},
-    Department: ${formData.department}`)
+    dispatch(addEmployee(newEmployee))
+    setIsSuccessModalOpen(true)
+    alert('COOL SUCCESS ')
   }
+
+  const saveValues = (e) => {
+    const target = e.target
+    let value
+    if (target.name === 'zipCode') {
+      value = Number(target.value);
+    } else if (target.name === 'dateBirth' || target.name === 'startDate') {
+      value = new Intl.DateTimeFormat("en-US").format(Number(target.valueAsDate))
+    } else {
+      value = target.value
+    }
+    setNewEmployee({ ...newEmployee, [target.name]: value });
+  }
+
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="name">First Name</label>
-      <input 
-        type="text"
-        name="name" 
-        id="name"
-        value={formData.name} 
-        onChange={handleChange} />
+    <section className="ly--xs-container mb--xxl">  
+      <form 
+        id="createEmploye"
+        className="form-wrapper"
+        onSubmit={formIsSuccess}
+      >
+        <div className="form-row flex mb--sm">
+          <InputText
+            id="firstName"
+            name="firstName"
+            label="First Name"
+            placeholder="John"
+            required={true}
+            pattern="^[A-Za-z0-9]{3,16}$"
+            onChange={saveValues}
+            errorMessage="Please enter at least 3 characters without special characters!"
+          />
 
-      <label htmlFor="surname">Last Name</label>
-      <input 
-      type="text" 
-      name="surname" 
-      id="surname"
-      value={formData.surname} 
-      onChange={handleChange} />
+          <InputText
+            id="lastName"
+            name="lastName"
+            label="Last Name"
+            placeholder="Doe"
+            required={true}
+            pattern="^[A-Za-z0-9]{3,16}$"
+            onChange={saveValues}
+            errorMessage="Please enter at least 3 characters without special characters!"
+          />
+        </div>
+        <div className="form-row flex mb--sm">
+          <InputDate
+            id="dateBirth"
+            name="dateBirth"
+            label="Date of Birth"
+            required={true}
+            onChange={saveValues}
+            errorMessage="Please enter a valid date!"
+          />
 
-      <label htmlFor="datebirth">Date of Birth</label>
-      <input 
-        id="datebirth" 
-        name="datebirth"
-        type="date" 
-        value={formData.birthdate.value}
-        onChange={handleChange} />
+          <InputDate
+            id="startDate"
+            name="startDate"
+            label="Start Date"
+            required={true}
+            onChange={saveValues}
+            errorMessage="Please enter a valid date!"
+          />
+        </div>
+        <div>
+          <fieldset className="address mb--sm">
+            <legend>Address</legend>
+            <div className="form-row flex mb--sm">
+              <InputText
+                id="street"
+                name="street"
+                label="Street"
+                placeholder="37 rue Benoît"
+                required={true}
+                pattern="^[#.0-9a-zA-Z\s,-]+$"
+                onChange={saveValues}
+                errorMessage="Please enter a valid address !"
+              />
 
-      <label htmlFor="startdate">Start Date</label>
-      <input 
-        id="startdate" 
-        name="startdate"
-        type="date"
-        value={formData.startdate.value} 
-        onChange={handleChange} />
+              <InputText
+                id="city"
+                name="city"
+                label="City"
+                placeholder="Paris"
+                required={true}
+                pattern="^[A-Za-z]{3,16}$"
+                onChange={saveValues}
+                errorMessage="Please enter a valid city !"
+              />
+            </div>
+            <div className="form-row flex mb--sm">
+              <InputSelect 
+                id="state"
+                name="state"
+                label="States"
+                required={false}
+                options={States}
+                onChange={saveValues}
+              />
 
-      <fieldset className="address">
-          <legend>Address</legend>
-          <label htmlFor="street">Street</label>
-          <input 
-            id="street" 
-            name="street" 
-            type="text"
-            value={formData.streetaddress} 
-            onChange={handleChange} />
-
-          <label htmlFor="city">City</label>
-          <input 
-            id="city"
-            name="city" 
-            type="text" 
-            value={formData.cityaddress} 
-            onChange={handleChange} />
-
-
-          <label htmlFor="state">State</label>
-          <select 
-            id="state" 
-            name="state" 
-            value={formData.stateaddress} 
-            onChange={handleChange}>
-          </select>
-
-          <label htmlFor="zipCode">Zip Code</label>
-          <input 
-            id="zipCode" 
-            name="zipCode"
-            type="number" 
-            value={formData.zipcode} 
-            onChange={handleChange} />
-      </fieldset>
-
-      <label htmlFor="department">Department</label>
-      <select 
-        id="department" 
-        name="department" 
-        value={formData.department} 
-        onChange={handleChange}>
-          <option>Sales</option>
-          <option>Marketing</option>
-          <option>Engineering</option>
-          <option>Human Resources</option>
-          <option>Legal</option>
-      </select>
-      <button type="submit">Submit</button>
-    </form>
-  )
+              <InputNumber 
+                id="zipCode"
+                name="zipCode"
+                label="Zip Code"
+                required={true}
+                onChange={saveValues}
+                errorMessage="Please enter your zip code !"
+              />
+            </div>
+            <div className="form-row">
+              <InputSelect 
+                id="department"
+                name="department"
+                label="Department"
+                required={true}
+                options={Departments}
+                onChange={saveValues}
+              />
+            </div>
+          </fieldset>
+        </div>
+        <button 
+        type="submit"
+        className="btn--plain btn--green"
+        onClick={verifyFormFields}>Enregistrer l'employé</button>
+      </form>
+    </section>
+  );
 }

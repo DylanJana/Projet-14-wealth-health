@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux'
 import { DataGrid } from "@mui/x-data-grid"
 
 export default function TableEmployees() {
-  const employees = useSelector((state) => state.employees)
-  console.log("EMPLOYEES ", employees)
+  // const employees = useSelector((state) => state.employees)
+  // console.log("EMPLOYEES ", employees)
   const columnsTable = [
     { field: "firstName", headerName: "First name", width: 150 },
     { field: "lastName", headerName: "Last name", width: 150 },
@@ -18,8 +18,9 @@ export default function TableEmployees() {
     { field: "zipCode", headerName: "Zip Code", width: 150 },
     { field: "department", headerName: "Department", width: 150 }
   ]
-  const rowsTable = [...employees, JSON.parse(localStorage.getItem('employees'))]
-  console.log("ROWS TABLE ", rowsTable)
+  const rowsTable =  JSON.parse(localStorage.getItem('employees'))
+  // console.log("ROWS TABLE ", rowsTable)
+  // console.log("EMPLOYEES ", employees)
 
   return (
     <div>

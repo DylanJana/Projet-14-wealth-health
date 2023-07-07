@@ -53,6 +53,7 @@ export default function EmployeeControllerForm() {
 
   const formIsSuccess = (e) => {
     e.preventDefault()
+    console.log("NEW EMPLOYEES ", newEmployee)
     dispatch(addEmployee(newEmployee))
     setIsSuccessModalOpen(true)
     alert('COOL SUCCESS ')

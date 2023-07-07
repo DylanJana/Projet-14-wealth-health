@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom"
 import { useDispatch } from 'react-redux'
 import { addEmployee } from "../../redux/employeeReducer/employeReducer"
 import { verifyFormFields } from "../../formVerify/formVerify"
+// import Modal from "modal/dist/Modal";
 
 /*** Modal Plugin */
 // import Modal from "Modal-wealth-health/dist/Modal";
@@ -67,6 +68,7 @@ export default function EmployeeControllerForm() {
     } else {
       value = target.value
     }
+    console.log('new empl',newEmployee) ;
     setNewEmployee({ ...newEmployee, [target.name]: value });
   }
 
@@ -140,7 +142,7 @@ export default function EmployeeControllerForm() {
                 label="City"
                 placeholder="Paris"
                 required={true}
-                pattern="^[A-Za-z]{3,16}$"
+                pattern="^[#.0-9a-zA-Z\s,-]+$"
                 onChange={saveValues}
                 errorMessage="Please enter a valid city !"
               />

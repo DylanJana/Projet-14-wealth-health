@@ -9,7 +9,13 @@ export const employeeSlice = createSlice({
   reducers: {
     addEmployee: (state, newEmployee) => {
       console.log("NEWEMPLOYEE ", newEmployee)
-      state = state.push({ ...newEmployee.payload});
+      //state.push({ ...newEmployee.payload});
+      // state = [...initialState,newEmployee.payload]
+      localStorage.setItem('employees', JSON.stringify(newEmployee.payload))
+      state = [...initialState]
+        console.log('state =======', state)
+        
+      //localStorage.setItem('emplyees',)
     }
   }
 })

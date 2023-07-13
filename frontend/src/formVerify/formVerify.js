@@ -1,6 +1,6 @@
-let allTextInputCheck = false
-let allDateInputCheck = false
-let allNumberInputCheck = false
+export let allTextInputCheck = false
+export let allDateInputCheck = false
+export let allNumberInputCheck = false
 
 export function verifyFormFields() {
   verifyInputText()
@@ -91,8 +91,11 @@ function verifyNumberInput() {
   return allNumberInputCheck
 }
 
-function submitForm(allTextInputCheck, allDateInputCheck, allNumberInputCheck) {
-  if(allTextInputCheck && allDateInputCheck && allNumberInputCheck) {
-    document.querySelector('#createEmploye').submit()
+export function submitForm(allTextInputCheck, allDateInputCheck, allNumberInputCheck) {
+  if(allTextInputCheck === false || allDateInputCheck === false || allNumberInputCheck === false) {
+    // document.querySelector('#createEmploye').submit(function(e) {
+    //   e.preventDefault()
+    // })
+    return false
   }
 }

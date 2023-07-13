@@ -9,7 +9,7 @@ import InputNumber from "../InputNumber/InputNumber"
 import { useNavigate } from "react-router-dom"
 import { useDispatch } from 'react-redux'
 import { addEmployee } from "../../redux/employeeReducer/employeReducer"
-import { verifyFormFields } from "../../formVerify/formVerify"
+import { verifyFormFields, submitForm, allTextInputCheck, allDateInputCheck, allNumberInputCheck } from "../../formVerify/formVerify"
 import ModalHrnet from 'dylan-modal-hrnet/dist/ModalHrnet/ModalHrnet'
 
 export default function EmployeeControllerForm() {
@@ -48,10 +48,15 @@ export default function EmployeeControllerForm() {
     setIsOpenModal(false)
   }
 
-  const formIsSuccess = (e) => {
-    e.preventDefault()
+  const formIsSuccess = () => {
     dispatch(addEmployee(newEmployee))
     setIsOpenModal(true)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    formIsSuccess()
+    submitForm(allTextInputCheck, allDateInputCheck, allNumberInputCheck)
   }
 
   const saveValues = (e) => {
@@ -72,7 +77,7 @@ export default function EmployeeControllerForm() {
       <form 
         id="createEmploye"
         className="form-wrapper"
-        onSubmit={formIsSuccess}
+        onSubmit={handleSubmit}
       >
         <div className="form-row flex mb--sm">
           <InputText

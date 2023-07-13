@@ -140,6 +140,10 @@ ul {
 	background-color: #9bb500;
 }
 
+.btn-modal {
+  width: 100%;
+}
+
 .btn--plain.btn--green:hover {
 	background-color: #789100;
   cursor: pointer;

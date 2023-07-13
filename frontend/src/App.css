@@ -78,6 +78,13 @@ ul {
   color: #789100;
 }
 
+.title--lg {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+}
+
 /*** Flex ***/
 .flex {
 	display: flex;

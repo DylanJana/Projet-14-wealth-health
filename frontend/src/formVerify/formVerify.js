@@ -94,6 +94,5 @@ function verifyNumberInput() {
 function submitForm(allTextInputCheck, allDateInputCheck, allNumberInputCheck) {
   if(allTextInputCheck && allDateInputCheck && allNumberInputCheck) {
     document.querySelector('#createEmploye').submit()
-    alert("SUBMIT FORM ")
   }
 }

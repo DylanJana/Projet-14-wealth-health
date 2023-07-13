@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom"
 import { useDispatch } from 'react-redux'
 import { addEmployee } from "../../redux/employeeReducer/employeReducer"
 import { verifyFormFields } from "../../formVerify/formVerify"
-import { Modal } from "modal-react-dylan/src/Components/Modal/ModalDylan"
+import ModalHrnet from 'dylan-modal-hrnet/dist/ModalHrnet/ModalHrnet'
 
 export default function EmployeeControllerForm() {
   const [newEmployee, setNewEmployee] = useState({
@@ -25,7 +25,7 @@ export default function EmployeeControllerForm() {
     department: ""
   })
 
-  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false)
+  const [openModal, setIsOpenModal] = useState(false)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -45,15 +45,13 @@ export default function EmployeeControllerForm() {
       zipCode: 0,
       department: ""
     })
-    setIsSuccessModalOpen(false)
+    setIsOpenModal(false)
   }
 
   const formIsSuccess = (e) => {
     e.preventDefault()
-    console.log("NEW EMPLOYEES ", newEmployee)
     dispatch(addEmployee(newEmployee))
-    setIsSuccessModalOpen(true)
-    alert('COOL SUCCESS ')
+    setIsOpenModal(true)
   }
 
   const saveValues = (e) => {
@@ -66,7 +64,6 @@ export default function EmployeeControllerForm() {
     } else {
       value = target.value
     }
-    console.log('new empl',newEmployee) ;
     setNewEmployee({ ...newEmployee, [target.name]: value });
   }
 
@@ -181,9 +178,8 @@ export default function EmployeeControllerForm() {
         className="btn--plain btn--green"
         onClick={verifyFormFields}>Register employee</button>
       </form>
-       <Modal formIsSuccess={isSuccessModalOpen} onClose={navigateToEmployeesTable} onClick={resetForm}>
-          Your employee has been created success ! 
-       </Modal>
+       <ModalHrnet openModal={openModal}>
+       </ModalHrnet>
     </section>
   );
 }

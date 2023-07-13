@@ -19,14 +19,18 @@ export default function TableEmployees() {
   ]
 
   
-  const rowsTable =  [...employees,...JSON.parse(localStorage.getItem('employees'))]
+//  let rowsTable =  [...employees, ...JSON.parse(localStorage.getItem('employees'))]
+let rowsTable =  [...employees]
+let rowsTableWithEmployees = [JSON.parse(localStorage.getItem('employees'))]
+console.log("LENGTH EMPLOYEES ", rowsTableWithEmployees)
 
-  if(rowsTable && rowsTable.length) {
+  if(rowsTableWithEmployees[0] !== null) {
+    rowsTableWithEmployees = [...employees, ...JSON.parse(localStorage.getItem('employees'))]
     return (
       <div>
   
         <DataGrid 
-          rows={rowsTable}
+          rows={rowsTableWithEmployees}
           getRowId={uuid}
           columns={columnsTable}
           pageSize={10}
@@ -40,7 +44,19 @@ export default function TableEmployees() {
     )
   } else {
     return (
-      <div></div>
+      <div>
+        <DataGrid 
+          rows={rowsTable}
+          getRowId={uuid}
+          columns={columnsTable}
+          pageSize={10}
+          rowsPerPageOptions={[10]}
+          className='mb--md'
+        />
+        <div className='mb--xxl'>
+          <Link to={'/create-employee'} className="btn--plain btn--green">Create an employee</Link>
+        </div>
+      </div>
     )
   }
 }

@@ -10,10 +10,7 @@ import { useNavigate } from "react-router-dom"
 import { useDispatch } from 'react-redux'
 import { addEmployee } from "../../redux/employeeReducer/employeReducer"
 import { verifyFormFields } from "../../formVerify/formVerify"
-import Modal from "modal-react-dylan/src/Components/Modal/Modal"
-
-/*** Modal Plugin */
-// import Modal from "Modal-wealth-health/dist/Modal";
+import { Modal } from "modal-react-dylan/src/Components/Modal/ModalDylan"
 
 export default function EmployeeControllerForm() {
   const [newEmployee, setNewEmployee] = useState({
@@ -184,7 +181,9 @@ export default function EmployeeControllerForm() {
         className="btn--plain btn--green"
         onClick={verifyFormFields}>Register employee</button>
       </form>
-       <Modal /> 
+       <Modal formIsSuccess={isSuccessModalOpen} onClose={navigateToEmployeesTable} onClick={resetForm}>
+          Your employee has been created success ! 
+       </Modal>
     </section>
   );
 }

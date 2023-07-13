@@ -5,8 +5,6 @@ import { DataGrid } from "@mui/x-data-grid"
 import uuid from 'react-uuid'
 import { employees } from '../../datas/employees'
 
-// localStorage.setItem('employees', JSON.stringify(employees))
-
 export default function TableEmployees() {
   const columnsTable = [
     { field: "firstName", headerName: "First name", width: 150 },
@@ -19,9 +17,6 @@ export default function TableEmployees() {
     { field: "zipCode", headerName: "Zip Code", width: 150 },
     { field: "department", headerName: "Department", width: 150 }
   ]
-  // useEffect(() => {
-  //   localStorage.setItem('employees', JSON.stringify(employees))
-  // }, [])
 
   
   const rowsTable =  [...employees,...JSON.parse(localStorage.getItem('employees'))]

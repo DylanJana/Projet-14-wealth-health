@@ -68,7 +68,8 @@ export default function EmployeeControllerForm() {
     if (target.name === 'zipCode') {
       value = Number(target.value);
     } else if (target.name === 'dateBirth' || target.name === 'startDate') {
-      value = new Intl.DateTimeFormat("en-US").format(Number(target.valueAsDate))
+      let options = {day:"2-digit", month: "2-digit", year:"numeric"}
+      value = new Intl.DateTimeFormat("en-US", options).format(Number(target.valueAsDate))
     } else {
       value = target.value
     }

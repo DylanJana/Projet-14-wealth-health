@@ -187,8 +187,8 @@ export default function EmployeeControllerForm() {
         className="btn--plain btn--green"
         onClick={verifyFormFields}>Register employee</button>
       </form>
-       <ModalHrnet openModal={openModal} onClose={navigateToEmployeesTable} resetForm={resetForm}>
-       </ModalHrnet>
+      <ModalHrnet openModal={openModal} onClose={navigateToEmployeesTable} resetForm={resetForm}>
+      </ModalHrnet>
     </section>
   );
 }

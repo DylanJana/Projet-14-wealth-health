@@ -31,6 +31,7 @@ export default function EmployeeControllerForm() {
 
   const navigateToEmployeesTable = () => {
     navigate('/')
+    document.querySelector('body').classList.remove('no--scroll')
   }
   
   const resetForm = () => {
@@ -45,7 +46,9 @@ export default function EmployeeControllerForm() {
       zipCode: 0,
       department: ""
     })
+    document.querySelector('body').classList.remove('no--scroll')
     setIsOpenModal(false)
+    document.querySelector('#createEmploye').reset()
   }
 
   const formIsSuccess = () => {
@@ -183,7 +186,7 @@ export default function EmployeeControllerForm() {
         className="btn--plain btn--green"
         onClick={verifyFormFields}>Register employee</button>
       </form>
-       <ModalHrnet openModal={openModal}>
+       <ModalHrnet openModal={openModal} onClose={navigateToEmployeesTable} resetForm={resetForm}>
        </ModalHrnet>
     </section>
   );

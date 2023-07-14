@@ -154,6 +154,10 @@ ul {
   display: none;
 }
 
+.no--scroll {
+  overflow: hidden;
+}
+
 /*** Form component design ***/
 .form-wrapper fieldset {
   padding: 0px 16px 16px 16px;
@@ -238,5 +242,9 @@ ul {
 
   .title--xl {
     font-size: 1.25rem;
+  }
+
+  .title--lg {
+    font-size: 1.15rem;
   }
 }

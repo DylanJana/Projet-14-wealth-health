@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './TableEmployees.css'
 import { Link } from 'react-router-dom'
 import { DataGrid } from "@mui/x-data-grid"
@@ -18,11 +18,8 @@ export default function TableEmployees() {
     { field: "department", headerName: "Department", width: 150 }
   ]
 
-  
-//  let rowsTable =  [...employees, ...JSON.parse(localStorage.getItem('employees'))]
 let rowsTable =  [...employees]
 let rowsTableWithEmployees = [JSON.parse(localStorage.getItem('employees'))]
-console.log("LENGTH EMPLOYEES ", rowsTableWithEmployees)
 
   if(rowsTableWithEmployees[0] !== null) {
     rowsTableWithEmployees = [...employees, ...JSON.parse(localStorage.getItem('employees'))]

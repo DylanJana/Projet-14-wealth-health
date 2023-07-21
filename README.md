@@ -6,7 +6,7 @@
 </p> 
 
 ## Prerequis
-### Install NodeJS :
+### Install NodeJS
 
 ## Install and Execute this project
 

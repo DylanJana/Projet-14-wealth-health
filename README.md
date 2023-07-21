@@ -28,4 +28,4 @@
 - Go to "Create Employee" page
 - Complete form to create an employee
 
-<img src='./frontend/src/assets/images/hrnet-home.webp' alt='Home page of Hrnet app' /> 
+<img src='./frontend/src/assets/img/hrnet-home.webp' alt='Home page of Hrnet app' /> 

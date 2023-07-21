@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { employees } from "../../datas/employees"
+import { employeesByDefault } from "../../datas/employees"
 
-const initialState = [...employees]
+const initialState = [...employeesByDefault]
 
 export const employeeSlice = createSlice({
   name: "employees",

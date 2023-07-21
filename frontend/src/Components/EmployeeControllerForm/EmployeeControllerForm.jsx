@@ -12,6 +12,14 @@ import { addEmployee } from "../../redux/employeeReducer/employeReducer"
 import { verifyFormFields, submitForm, allTextInputCheck, allDateInputCheck, allNumberInputCheck } from "../../formVerify/formVerify"
 import ModalHrnet from 'dylan-modal-hrnet/dist/ModalHrnet/ModalHrnet'
 
+/**
+* Initializes the employee creation form and manages its verifications
+*
+* @return {JSX}
+* @author Dylan
+* @version 1.0
+*/
+
 export default function EmployeeControllerForm() {
   const [newEmployee, setNewEmployee] = useState({
     firstName: "",
@@ -62,6 +70,13 @@ export default function EmployeeControllerForm() {
     submitForm(allTextInputCheck, allDateInputCheck, allNumberInputCheck)
   }
 
+  /**
+  * Saves the obtained values ​​and manages their types. After update state
+  *
+  * @params event = action in the input
+  * @author Dylan
+  * @version 1.0
+  */
   const saveValues = (e) => {
     const target = e.target
     let value
@@ -69,6 +84,7 @@ export default function EmployeeControllerForm() {
       value = Number(target.value);
     } else if (target.name === 'dateBirth' || target.name === 'startDate') {
       let options = {day:"2-digit", month: "2-digit", year:"numeric"}
+      // Format Date MM/DD/YYYY
       value = new Intl.DateTimeFormat("en-US", options).format(Number(target.valueAsDate))
     } else {
       value = target.value
@@ -90,6 +106,7 @@ export default function EmployeeControllerForm() {
             label="First Name"
             placeholder="John"
             required={true}
+            // The pattern checks that the value are letters. Minimum three characters, maximum sixteen
             pattern="^[A-Za-z0-9]{3,16}$"
             onChange={saveValues}
             errorMessage="Please enter at least 3 characters without special characters!"
@@ -101,6 +118,7 @@ export default function EmployeeControllerForm() {
             label="Last Name"
             placeholder="Doe"
             required={true}
+            // The pattern checks that the value are letters. Minimum three characters, maximum sixteen
             pattern="^[A-Za-z0-9]{3,16}$"
             onChange={saveValues}
             errorMessage="Please enter at least 3 characters without special characters!"
@@ -135,6 +153,7 @@ export default function EmployeeControllerForm() {
                 label="Street"
                 placeholder="37 street Benoît"
                 required={true}
+                // This input accepts as value, digits or letters, or even both at the same time
                 pattern="^[#.0-9a-zA-Z\s,-]+$"
                 onChange={saveValues}
                 errorMessage="Please enter a valid address !"
@@ -146,6 +165,7 @@ export default function EmployeeControllerForm() {
                 label="City"
                 placeholder="Paris"
                 required={true}
+                // This input accepts as value, digits or letters, or even both at the same time
                 pattern="^[#.0-9a-zA-Z\s,-]+$"
                 onChange={saveValues}
                 errorMessage="Please enter a valid city !"

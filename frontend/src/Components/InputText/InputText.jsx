@@ -1,4 +1,18 @@
-import React from 'react'
+ /**
+  * Create an input text
+  *
+  * @params name = string name of input
+  * @params label = string label of input
+  * @params string
+  * @params boolean = this input is required or not ?
+  * @params Regexp = Checks that the input value contains either numbers or letters, or even both at the same time
+  * @params function = This function is saveValues it's save values of input and convert type
+  * @params array of states containing several objects. Each object has a label key and a value key
+  * 
+  * @return {JSX}
+  * @author Dylan
+  * @version 1.0
+  */
 
 export default function InputText({
   name,

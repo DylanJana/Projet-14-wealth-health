@@ -91,11 +91,20 @@ function verifyNumberInput() {
   return allNumberInputCheck
 }
 
+  /**
+  * Saves the obtained values ​​and manages their types. After update state
+  *
+  * @params allTextInputCheck = bool = true if all inputs passed verifications
+  * @params allDateInputCheck = bool = true if all inputs passed verifications
+  * @params allNumberInputCheck = bool = true if all inputs passed verifications
+  * 
+  * @return false if verifications has failed
+  * @author Dylan
+  * @version 1.0
+  */
+
 export function submitForm(allTextInputCheck, allDateInputCheck, allNumberInputCheck) {
   if(allTextInputCheck === false || allDateInputCheck === false || allNumberInputCheck === false) {
-    // document.querySelector('#createEmploye').submit(function(e) {
-    //   e.preventDefault()
-    // })
     return false
   }
 }

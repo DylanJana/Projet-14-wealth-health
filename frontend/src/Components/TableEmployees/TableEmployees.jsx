@@ -3,7 +3,15 @@ import './TableEmployees.css'
 import { Link } from 'react-router-dom'
 import { DataGrid } from "@mui/x-data-grid"
 import uuid from 'react-uuid'
-import { employees } from '../../datas/employees'
+import { employeesByDefault } from '../../datas/employees'
+
+  /**
+  * Create employees table with @mui/x-data-grid component = External library
+  *
+  * @return {JSX} an array with employeesByDefault array value and localstorage array employees
+  * @author Dylan
+  * @version 1.0
+  */
 
 export default function TableEmployees() {
   const columnsTable = [
@@ -18,11 +26,11 @@ export default function TableEmployees() {
     { field: "department", headerName: "Department", width: 150 }
   ]
 
-let rowsTable =  [...employees]
+let rowsTable =  [...employeesByDefault]
 let rowsTableWithEmployees = [JSON.parse(localStorage.getItem('employees'))]
 
   if(rowsTableWithEmployees[0] !== null) {
-    rowsTableWithEmployees = [...employees, ...JSON.parse(localStorage.getItem('employees'))]
+    rowsTableWithEmployees = [...employeesByDefault, ...JSON.parse(localStorage.getItem('employees'))]
     return (
       <div>
   

@@ -1,4 +1,4 @@
-export const employees = [
+export const employeesByDefault = [
   {
     firstName: "Lila",
     lastName: "Lalobil",

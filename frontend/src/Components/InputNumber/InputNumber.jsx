@@ -1,10 +1,21 @@
-import React from 'react'
+ /**
+  * Create an input number
+  *
+  * @params name = string name of input
+  * @params label = string label of input
+  * @params boolean = this input is required or not ?
+  * @params function = This function is saveValues it's save values of input and convert type
+  * @params string
+  * 
+  * @return {JSX}
+  * @author Dylan
+  * @version 1.0
+  */
 
 export default function InputNumber({
   name,
   label,
   required,
-  pattern,
   onChange,
   errorMessage
 }) {
@@ -21,7 +32,6 @@ export default function InputNumber({
         id={name}
         name={name}
         required={required}
-        pattern={pattern}
         onChange={onChange}
       />
       <p role='alert' className='d--none error-message'>

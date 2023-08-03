@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { employeesByDefault } from "../../datas/employees"
+import { employeesByDefault } from "../../datas/employees.js"
 
 const initialState = [...employeesByDefault]
 

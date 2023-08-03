@@ -34,7 +34,7 @@ export default function InputNumber({
         required={required}
         onChange={onChange}
       />
-      <p role='alert' className='d--none error-message'>
+      <p role='alert' className='d--none error-message' data-testid="error-text">
         {errorMessage}
       </p>
     </div>

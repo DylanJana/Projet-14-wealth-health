@@ -1,12 +1,12 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
-import NavBar from './Components/NavBar/NavBar'
+import NavBar from './Components/NavBar/NavBar.js'
 import './App.css'
 
 // Import Pages
-import ListEmployees from './Pages/ListEmployees/ListEmployees'
-import CreateEmployee from './Pages/CreateEmployee/CreateEmployee'
-import Page404 from './Pages/Page404/Page404'
-import Footer from './Components/Footer/Footer'
+import ListEmployees from './Pages/ListEmployees/ListEmployees.js'
+import CreateEmployee from './Pages/CreateEmployee/CreateEmployee.js'
+import Page404 from './Pages/Page404/Page404.js'
+import Footer from './Components/Footer/Footer.js'
 
 function App() {
   return (

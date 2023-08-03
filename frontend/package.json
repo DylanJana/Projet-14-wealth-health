@@ -2,7 +2,9 @@
   "name": "frontend",
   "version": "1.0.6",
   "private": false,
+  "type": "module",
   "dependencies": {
+    "@babel/core": "^7.22.9",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.13.3",
@@ -11,7 +13,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "dylan-modal-hrnet": "^0.2.3",
+    "dylan-modal-hrnet": "^0.2.7",
     "install": "^0.13.0",
     "react": "^18.2.0",
     "react-datepicker": "^4.12.0",
@@ -25,7 +27,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -45,6 +47,13 @@
     "@babel/plugin-syntax-jsx": "^7.22.5",
     "@babel/preset-env": "^7.22.9",
     "@babel/preset-react": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
+    "@types/jest": "^29.5.3",
+    "babel-jest": "^29.6.2",
+    "jest": "^29.6.2",
+    "jest-environment-jsdom": "^29.6.2",
+    "ts-jest": "^29.1.1",
+    "typescript": "^4.9.5",
     "webpack-cli": "^5.1.4"
   }
 }

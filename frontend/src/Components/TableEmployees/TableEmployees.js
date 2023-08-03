@@ -3,7 +3,7 @@ import './TableEmployees.css'
 import { Link } from 'react-router-dom'
 import { DataGrid } from "@mui/x-data-grid"
 import uuid from 'react-uuid'
-import { employeesByDefault } from '../../datas/employees'
+import { employeesByDefault } from '../../datas/employees.js'
 
   /**
   * Create employees table with @mui/x-data-grid component = External library

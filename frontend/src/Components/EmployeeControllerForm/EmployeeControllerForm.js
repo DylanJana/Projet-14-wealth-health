@@ -1,16 +1,16 @@
 import React from "react"
 import { useState } from "react"
-import { States } from "../../datas/states"
-import { Departments } from "../../datas/departments"
-import InputText from "../InputText/InputText.jsx"
-import InputDate from "../InputDate/InputDate.jsx"
-import InputSelect from "../InputSelect/InputSelect"
-import InputNumber from "../InputNumber/InputNumber"
+import { States } from "../../datas/states.js"
+import { Departments } from "../../datas/departments.js"
+import InputText from "../InputText/InputText.js"
+import InputDate from "../InputDate/InputDate.js"
+import InputSelect from "../InputSelect/InputSelect.js"
+import InputNumber from "../InputNumber/InputNumber.js"
 import { useNavigate } from "react-router-dom"
 import { useDispatch } from 'react-redux'
-import { addEmployee } from "../../redux/employeeReducer/employeReducer"
-import { verifyFormFields, submitForm, allTextInputCheck, allDateInputCheck, allNumberInputCheck } from "../../formVerify/formVerify"
-import ModalHrnet from 'dylan-modal-hrnet/dist/ModalHrnet/ModalHrnet'
+import { addEmployee } from "../../redux/employeeReducer/employeReducer.js"
+import { verifyFormFields, submitForm, allTextInputCheck, allDateInputCheck, allNumberInputCheck } from "../../formVerify/formVerify.js"
+import ModalHrnet from 'dylan-modal-hrnet/dist/ModalHrnet/ModalHrnet.js'
 
 /**
 * Initializes the employee creation form and manages its verifications
@@ -109,7 +109,7 @@ export default function EmployeeControllerForm() {
             // The pattern checks that the value are letters. Minimum three characters, maximum sixteen
             pattern="^[A-Za-z0-9]{3,16}$"
             onChange={saveValues}
-            errorMessage="Please enter at least 3 characters without special characters!"
+            errorMessage="Please enter at least 3 characters without special characters for your firstname !"
           />
 
           <InputText
@@ -121,7 +121,7 @@ export default function EmployeeControllerForm() {
             // The pattern checks that the value are letters. Minimum three characters, maximum sixteen
             pattern="^[A-Za-z0-9]{3,16}$"
             onChange={saveValues}
-            errorMessage="Please enter at least 3 characters without special characters!"
+            errorMessage="Please enter at least 3 characters without special characters for your lastname !"
           />
         </div>
         <div className="form-row flex mb--sm">
@@ -205,6 +205,7 @@ export default function EmployeeControllerForm() {
         <button 
         type="submit"
         className="btn--plain btn--green"
+        data-testid="form-btn"
         onClick={verifyFormFields}>Register employee</button>
       </form>
       <ModalHrnet openModal={openModal} onClose={navigateToEmployeesTable} resetForm={resetForm}>

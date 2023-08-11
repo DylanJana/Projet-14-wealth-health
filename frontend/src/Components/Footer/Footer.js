@@ -11,7 +11,10 @@ export default function Footer() {
           <Link to={'/'} className='footer-logo'>
             <img 
               src={logoWhite} 
-              alt="Logo Hrnet" />
+              alt="Logo Hrnet"
+              width="80"
+              height="80"
+              loading="lazy" />
           </Link>
           <ul className='footer-links flex'>
             <li>

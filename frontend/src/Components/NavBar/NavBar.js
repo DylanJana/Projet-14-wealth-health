@@ -11,6 +11,9 @@ export default function NavBar() {
           <Link to={'/'} className='navbar-logo'>
             <img 
               src={logo} 
+              width="80"
+              height="80"
+              loading="lazy"
               alt="Logo Hrnet" />
           </Link>
           <ul className='navbar-links flex'>

@@ -17,8 +17,12 @@ footer {
   color: #fff;
 }
 
+.footer-links li a.active--underline {
+  text-decoration: underline;
+}
+
 .footer-links li a:hover {
-  color: #789100;
+  text-decoration: underline;
 }
 
 @media(max-width: 576px) {
@@ -26,7 +30,7 @@ footer {
     flex-direction: column;
     row-gap: 32px;
   }
-  
+
   .footer-links {
     flex-direction: column;
     row-gap: 32px;

@@ -41,7 +41,7 @@ export default function EmployeeControllerForm() {
     navigate('/')
     document.querySelector('body').classList.remove('no--scroll')
   }
-  
+
   const resetForm = () => {
     setNewEmployee({
       firstName: "",
@@ -56,6 +56,7 @@ export default function EmployeeControllerForm() {
     })
     document.querySelector('body').classList.remove('no--scroll')
     setIsOpenModal(false)
+    document.querySelectorAll('.error-message').forEach(errorMessage => errorMessage.classList.add('d--none'))
     document.querySelector('#createEmploye').reset()
   }
 
@@ -83,7 +84,7 @@ export default function EmployeeControllerForm() {
     if (target.name === 'zipCode') {
       value = Number(target.value);
     } else if (target.name === 'dateBirth' || target.name === 'startDate') {
-      let options = {day:"2-digit", month: "2-digit", year:"numeric"}
+      let options = { day: "2-digit", month: "2-digit", year: "numeric" }
       // Format Date MM/DD/YYYY
       value = new Intl.DateTimeFormat("en-US", options).format(Number(target.valueAsDate))
     } else {
@@ -93,8 +94,8 @@ export default function EmployeeControllerForm() {
   }
 
   return (
-    <section className="ly--xs-container mb--xxl">  
-      <form 
+    <section className="ly--xs-container mb--xxl">
+      <form
         id="createEmploye"
         className="form-wrapper"
         onSubmit={handleSubmit}
@@ -153,8 +154,6 @@ export default function EmployeeControllerForm() {
                 label="Street"
                 placeholder="37 street Benoît"
                 required={true}
-                // This input accepts as value, digits or letters, or even both at the same time
-                pattern="^[#.0-9a-zA-Z\s,-]+$"
                 onChange={saveValues}
                 errorMessage="Please enter a valid address !"
               />
@@ -165,14 +164,12 @@ export default function EmployeeControllerForm() {
                 label="City"
                 placeholder="Paris"
                 required={true}
-                // This input accepts as value, digits or letters, or even both at the same time
-                pattern="^[#.0-9a-zA-Z\s,-]+$"
                 onChange={saveValues}
                 errorMessage="Please enter a valid city !"
               />
             </div>
             <div className="form-row flex mb--sm">
-              <InputSelect 
+              <InputSelect
                 id="state"
                 name="state"
                 label="States"
@@ -181,7 +178,7 @@ export default function EmployeeControllerForm() {
                 onChange={saveValues}
               />
 
-              <InputNumber 
+              <InputNumber
                 id="zipCode"
                 name="zipCode"
                 label="Zip Code"
@@ -191,7 +188,7 @@ export default function EmployeeControllerForm() {
               />
             </div>
             <div className="form-row">
-              <InputSelect 
+              <InputSelect
                 id="department"
                 name="department"
                 label="Department"
@@ -202,11 +199,11 @@ export default function EmployeeControllerForm() {
             </div>
           </fieldset>
         </div>
-        <button 
-        type="submit"
-        className="btn--plain btn--green"
-        data-testid="form-btn"
-        onClick={verifyFormFields}>Register employee</button>
+        <button
+          type="submit"
+          className="btn--plain btn--green"
+          data-testid="form-btn"
+          onClick={verifyFormFields}>Register employee</button>
       </form>
       <ModalHrnet openModal={openModal} onClose={navigateToEmployeesTable} resetForm={resetForm}>
       </ModalHrnet>
